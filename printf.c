@@ -35,6 +35,7 @@ int _printf(const char *format, ...)
 				length = strlen(next_str);
 				write(1, next_str, (add_chars += length, length));
 			}
+			format++;
 		}
 		else
 		{
@@ -42,7 +43,6 @@ int _printf(const char *format, ...)
 			add_chars++;
 			format++;
 		}
-		format++;
 	}
 		va_end(print_args);
 		return (add_chars);
