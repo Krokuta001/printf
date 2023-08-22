@@ -11,8 +11,8 @@ int _printf(const char *format, ...)
 	int add_chars = 0, length = 0;
 
 	va_start(print_args, format);
-	if (!format)
-		exit(98);
+	if (format == NULL)
+		return (-1);
 	while (*format)
 	{
 		if (*format == '%')
@@ -35,7 +35,6 @@ int _printf(const char *format, ...)
 				length = strlen(next_str);
 				write(1, next_str, (add_chars += length, length));
 			}
-			format++;
 		}
 		else
 		{
@@ -43,6 +42,7 @@ int _printf(const char *format, ...)
 			add_chars++;
 			format++;
 		}
+		format++;
 	}
 		va_end(print_args);
 		return (add_chars);
